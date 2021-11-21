@@ -1,0 +1,172 @@
+#include<iostream>
+#include<string>
+using namespace std;
+
+
+class nguoi{
+	private :
+		string hoten;
+		int nsinh;
+		int tsinh;
+		int nsinh;
+		int gt ;
+	public:
+	void nhapn();
+	void xuatn();
+		
+};
+void nguoi::nhapn()
+{
+	cout<<" nhap ho ten :";
+	getline(cin , hoten);
+	fflush(stdin);
+	
+	cout <<" nhap ngay sinh:";
+	cin>>nsinh;
+	
+	cout<<" nhap thang sinh ";
+	cin>>tsinh ;
+	
+	cout<<"nhap nham sinh ";
+	cin>> nsinh;
+	
+	cout<<" nhap gioi tinh ( nam 1/ nu 0 )";
+	cin>>gt;
+}
+void nguoi::xuatn()
+{
+	cout<<"*********** THONG TIN DA NHAP ***********"<<endl;
+	cout<<" ho ten : "<<hoten<<endl;
+	cout<<"ngay thang nam:"<<nsinh<<"/ "<<tsinh<<"/ "<<nsinh ;
+	cout<<" gioi tinh :";
+	if (gt==1)
+	cout<<"nam";
+	else 
+	cout<<"nu";
+}
+//***************   xay dung class sinh vien 
+
+class svien : public nguoi
+{
+	protected :
+		int mssv ;
+		string nganh ;
+		string khoa;
+	public:
+	void nhapsv();
+	void xuatsv();
+		
+	
+};
+void svien::nhapsv(){
+	cout<<" nhap mssv :";
+	cin>>mssv ;
+	
+	cout<<" nhap nganh hoc : " ;
+	getline(cin , nganh);
+	fflush(stdin);
+	
+	cout<<" nhap nien khoa :";
+	getline(cin, khoa);
+	fflush(stdin);
+}
+void svien::xuatsv(){
+	cout<<" ho ten : "<<hoten<<endl;
+	cout <<" nganh hoc :"<<nganh <<endl ;
+	cout<<" khoa hoc :"<<khoa ;
+}
+
+                     // xay dung mot class diem 
+
+class diem: public svien
+{
+private:
+     float dtoan;
+     float dtanh ;
+     float diemtb ;
+public: 
+ 	void nhapd();
+ 	void xuatd();
+ 	float tdiem();
+ 	void sapxep();
+ 	int diem::dem ();
+ 	void timkiemdtb(int mssv);
+ 	
+ 	
+}
+
+void diem::nhapd(){
+	cout <<" ===== nhap diem ===="<<endl;
+	
+	cout<<" nhap diem toan :";
+	if(dtoan<0 || dtoan >10){	
+	cin>>dtoan;}
+	
+	cout<<" nhap diem anh van :";
+	if (dtanh < 0 || dtanh >10){
+	cin>>dtanh;}
+	
+	
+}
+float diem::tdiem (){
+	diemtb = ( dtoan + dtanh )/2 ;
+	return  diemtb ;
+}
+
+void diem::xuat (){
+	cout << " diem toan la :"<<dtoan<<endl;
+	cout << " diem van la :"<< dtanh <<endl ;
+	cout << " diem trung binh la :"<<diemtb <<endl ;
+	if(diemtb >=  8 && diemtb<= 10 ){
+		cout<<" hoc luc gioi";
+	}else if (diemtb >=  6,5 && diemtb< 8 ){
+		cout<<" hoc luc kha ";
+	}else if (diemtb >=  4 && diemtb< 6,5){
+		cout<<" hoc luc trung binh ";
+	}else 
+	cout << " hoc luc yeu ";
+	}
+
+void menu ()
+{
+	cout<<"\n*******************************************************";
+    cout<<"\n*              HE THONG QUAN LY SINH VIEN             *";
+    cout<<"\n*                                                     *";
+    cout<<"\n*  QUAN LY SINH VIEN                                  *";
+    cout<<"\n*                                                     *";
+    cout<<"\n*  1. Nhap vao sinh vien                              *";
+    cout<<"\n*  2. Tim kiem theo ma so sinh vien                   *";
+    cout<<"\n*  3. Tim kiem theo ten sinh vien                     *";
+    cout<<"\n*  4. Danh sach sinh vien                             *";
+    cout<<"\n*  5. Xoa                                             *";
+    cout<<"\n*                                                     *";
+    cout<<"\n*  QUAN LY DIEM                                       *";
+    cout<<"\n*                                                     *";
+    cout<<"\n*  6. Nhap diem cua sinh vien                         *";
+    cout<<"\n*  7. Tim kiem theo ma so sinh vien                   *";
+    cout<<"\n*  8. Tim kiem theo ten                               *";
+    cout<<"\n*  9. Tim kiem theo diem trung binh                   *";
+    cout<<"\n*  10. Danh sach SV theo thu tu giam dan cua DTB      *";
+    cout<<"\n*  11.xoa                                             *";
+    cout<<"\n*  12. thoat chuong trinh                             *";
+    cout<<"\n*******************************************************";
+    int n;
+    cin>> n ;
+    switch( n );
+    {
+    	case(1):
+    		{
+    			sv.nhapsv();
+    			menu();
+    			break
+			}
+		case (2):
+			{
+				
+			}
+	}
+	
+}
+int main (){
+	
+}
