@@ -1,0 +1,114 @@
+void SinhVien:: MENU(){	
+	SinhVien sv[MAX];
+	int x,index=0,n;
+	do  
+	{
+		system("cls");
+		cout<<"\n\t\t\t\t====================Chuc Nang Chuong Trinh=====================";
+		cout<<"\n\t\t\t\t*1.Nhap vao sinh vien moi.                                     *";
+		cout<<"\n\t\t\t\t*2.In ra danh sach cac sinh vien.                              *";
+		cout<<"\n\t\t\t\t*3.In ra danh sach cac sinh vien theo diem tang dan.           *";
+		cout<<"\n\t\t\t\t*4.In ra sinh vien co diem cao nhat.                           *";
+		cout<<"\n\t\t\t\t*5.In ra sinh vien co diem thap nhat.                          *";
+		cout<<"\n\t\t\t\t*6.Sap xep sinh vien theo ten theo thu tu tang dan.            *";
+		cout<<"\n\t\t\t\t*7.Thoat!                                                      *";
+		cout<<"\n\t\t\t\t===============================================================";
+		cout<<"\n\t\t\t\t Moi ban nhap vao lua chon : ";
+		cin>>x;
+		switch (x)
+		{
+		case 1:
+			{
+				system("cls");
+				cout<<"\nMoi ban nhap vao so sinh vien can them: ";
+				cin>>n;
+				int dem=0;
+				for(int i=0;i<n+index;i++)
+				{
+					cout<<"\nMoi ban nhap vao thong tin cua sinh vien thu : "<<i+1<<endl;
+					sv[i].Nhap();
+					dem++;
+				}
+				index+=dem;
+				cout<<"\nDa nhap xong!";
+				system("pause");
+			}
+			break;
+		case 2:
+			{
+				system("cls");
+				cout<<"\n\t\tDanh Sach Sinh Vien:\n";
+				cout<<setw(15)<<"MSSV"<<setw(15)<<"Ho Ten"<<setw(15)<<"NamSinh"<<setw(15)<<"Diem"<<endl;	
+				for(int i=0;i<index;i++)
+				{
+					sv[i].Xuat();
+				}
+				system("pause");
+			}
+			break;
+		case 3:
+        	{
+		    	system("cls");
+		    	cout<<"\n\t\t\t\t Danh sach cac sinh vien theo diem tang dan :\n";
+		    	cout<<setw(15)<<"MSSV"<<setw(15)<<"Ho Ten"<<setw(15)<<"NamSinh"<<setw(15)<<"Diem"<<endl;
+		    	for(int i=0;i<index;i++)
+				{
+		    	      sapXepTheoDiem(sv, n);
+                      sv[i].Xuat();
+                      cout<<endl;
+                }
+                system("pause"); 
+            }    
+            break;	
+		case 4:
+			{
+				system("cls");
+				cout<<"\n\t\t\t\t Sinh vien co diem cao nhat la:\n";
+				cout<<setw(15)<<"MSSV"<<setw(15)<<"Ho Ten"<<setw(15)<<"NamSinh"<<setw(15)<<"Diem"<<endl;
+				for(int i=0;i<index;i++)
+				{
+					if(sv[MaxDiem(sv,n)].getDiemTB()==sv[i].getDiemTB())
+						{
+							sv[i].Xuat();
+							cout<<endl;
+						}
+				}
+				system("pause");
+			}
+			break;
+		case 5:
+			{
+				system("cls");
+				cout<<"\n\t\t\t\t Sinh vien co diem thap nhat la:\n";
+				cout<<setw(15)<<"MSSV"<<setw(15)<<"Ho Ten"<<setw(15)<<"NamSinh"<<setw(15)<<"Diem"<<endl;
+				for(int i=0;i<index;i++)
+				{
+					if(sv[MinDiem(sv,n)].getDiemTB()==sv[i].getDiemTB())
+						{
+							sv[i].Xuat();
+							cout<<endl;
+						}
+				}
+				system("pause");
+			}
+			break;
+		case 6:
+		    {
+		    	system("cls");
+		    	cout<<"\n\t\t\t\t Danh sach sap xep sinh vien theo ten la:\n";
+		    	cout<<setw(15)<<"MSSV"<<setw(15)<<"Ho Ten"<<setw(15)<<"NamSinh"<<setw(15)<<"Diem"<<endl;
+		    	for(int i=0;i<index;i++)
+				{
+		    	      sapXepTheoTen(sv, n);
+                      sv[i].Xuat();
+                      cout<<endl;
+                }
+                system("pause"); 
+            }    
+            break;
+		default:
+			break;
+		}
+	}
+	while(x!=7);
+}
