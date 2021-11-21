@@ -1,0 +1,32 @@
+#include<iostream>
+#include<string.h>
+#include<conio.h>
+using namespace std;
+class SinhVien{
+	private:
+		string MSSV, HoTen;
+		int NamSinh;
+		float Diem;
+	public:
+		SinhVien();
+	    SinhVien(string MSSV,string HoTen,int NamSinh,float Diem);
+		~SinhVien();
+		float getDiemTB();
+		void Nhap();
+		void Xuat();
+		int MaxDiem(SinhVien sv[],int n);	                 
+		int MinDiem(SinhVien sv[],int n);	                 
+		void sapXepTheoTen(SinhVien sv[], int n);            
+		void sapXepTheoDiem(SinhVien sv[], int n);           
+		                
+};
+SinhVien::~SinhVien(){
+ }
+SinhVien::SinhVien(string MSSV,string HoTen,int NamSinh,float Diem){
+ 	this->MSSV   = MSSV;
+ 	this->HoTen  = HoTen;
+ 	this->NamSinh= NamSinh;
+ 	this->Diem   = Diem;
+ }
+ float SinhVien::getDiemTB(){
+ 	return Diem;
